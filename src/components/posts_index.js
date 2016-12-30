@@ -7,7 +7,7 @@ import {fetchPosts} from '../actions/index'
 import {Link} from 'react-router';
 
 class PostsIndex extends Component {
-    //componentWillMount is a lifecycle method so it's automatically called by React when it's going to be loaded to the DOM for the first time.
+    //componentWillMount is a lifecycle method so it's automatically called by React when the component is going to be loaded to the DOM.
     componentWillMount(){
         // console.log('fetch posts');
         this.props.fetchPosts();
