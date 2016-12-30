@@ -1,18 +1,22 @@
 import React from 'react';
 import {Route, IndexRoute} from 'react-router';
 import App from './components/app'
+import PostsIndex from './components/posts_index';
 
 //function below is just to make an example.
-const Greeting = () => {
-    return <div>Hey there!</div>
-};
+// const Greeting = () => {
+//     return <div>Hey there!</div>
+// };
 
 
 //export below says when the path is this, show this component.
 export default (
+    // don't change the fact that App will remain the parent for all the routes.
     <Route path='/' component={App}>
-        <Route path='greet' component={Greeting}> </Route>
-        <Route path='greet2' component={Greeting}> </Route>        <Route path='greet3' component={Greeting}> </Route>
+    {/* the one next line below is what will be rendered at just the '/' index route. everything underneath it is nested or other URLs. */}
+        <IndexRoute component={PostsIndex} />
+        {/* <Route path='greet' component={Greeting}> </Route>
+        <Route path='greet2' component={Greeting}> </Route>        <Route path='greet3' component={Greeting}> </Route> */}
     </Route>
 )
 
