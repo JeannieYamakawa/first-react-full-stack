@@ -1,9 +1,24 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {reduxForm} from 'redux-form';
 import {createPost} from '../actions/index';
 import {Link} from 'react-router';
 
 class PostsNew extends Component {
+    static contextTypes = {
+        //searches all the parents until it finds a component called router, which actually comes from our router.
+        router: PropTypes.object
+    };
+    //^^this defines an object called contextTypes on the PostsNew class. React returns this object whenever an instance of PostsNew is created.
+
+
+    onSubmit(props){
+        this.props.createPost(props).then(() => {
+            //only runs when blog post has been successfully created, so navigate the user to the posts index view
+            //navigate by calling this.context.router.push with the new path to navigate to.
+            this.context.router.push('/');
+        });
+    }
+
     render(){
         //const {fields:{title,categories,content}, handleSubmit} = this.props;
         //^^ES6 syntax. same lines:
@@ -15,7 +30,7 @@ class PostsNew extends Component {
 
         // handleSubmit is from redux-form.
         return(
-            <form onSubmit={handleSubmit(this.props.createPost)}>
+            <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
 
                 <h3>Create A New Post</h3>
 
