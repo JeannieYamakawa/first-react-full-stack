@@ -13,6 +13,7 @@ const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
+      {/* browserHistory says 'use the entire URL when trying to find out where we are' */}
       <Router history={browserHistory} routes={routes}/>
   </Provider>
   , document.querySelector('.container'));

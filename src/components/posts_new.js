@@ -37,7 +37,7 @@ class PostsNew extends Component {
                 <div className={`form-group ${title.touched && title.invalid ? 'has-danger' : ''}`}>
                     <label>Title</label>
                     <input type='text' className='form-control' {...title}/>
-                    {/* {...title} makes sure all properties of title variable show up on the input, such as methods like onBlur, onUpdate, pristine, valid, etc */}
+                    {/* {...title} is the fields configuration object provided by redux-form (see variable above). it makes sure all properties of title variable show up on the input, such as methods like onBlur, onUpdate, pristine, valid, etc */}
                     <div className='text-help'>
                         {title.touched ? title.error : ''}
                     </div>

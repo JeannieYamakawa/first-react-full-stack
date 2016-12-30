@@ -9,17 +9,20 @@ import {Link} from 'react-router';
 class PostsIndex extends Component {
     //componentWillMount is a lifecycle method so it's automatically called by React when it's going to be loaded to the DOM for the first time.
     componentWillMount(){
-        // console.log('this would be a good time to call an action creator to fetch posts.');
+        // console.log('fetch posts');
         this.props.fetchPosts();
     }
 
 
     renderPosts(){
+        //this actually fits inside of the parent render below on the view page.
         return this.props.posts.map((post)=>{
             return (
                 <li className='list-group-item' key={post.id}>
+                    <Link to={'posts/'+post.id}>
                     <span className='float-right'>{post.categories}</span>
                     <strong>{post.title}</strong>
+                    </Link>
                 </li>
             );
         })
@@ -28,7 +31,7 @@ class PostsIndex extends Component {
     render(){
         return(
             <div>
-                <div className='text-xs-right'>
+                <div className='float-right'>
                     <Link to='/posts/new' className='btn btn-primary'>Add a post</Link>
                 </div>
                 <h3>Posts</h3>
