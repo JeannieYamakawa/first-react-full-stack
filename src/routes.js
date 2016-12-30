@@ -2,7 +2,7 @@ import React from 'react';
 import {Route, IndexRoute} from 'react-router';
 import App from './components/app'
 import PostsIndex from './components/posts_index';
-
+import PostsNew from './components/posts_new';
 //function below is just to make an example.
 // const Greeting = () => {
 //     return <div>Hey there!</div>
@@ -15,8 +15,9 @@ export default (
     <Route path='/' component={App}>
     {/* the one next line below is what will be rendered at just the '/' index route. everything underneath it is nested or other URLs. */}
         <IndexRoute component={PostsIndex} />
-        {/* <Route path='greet' component={Greeting}> </Route>
-        <Route path='greet2' component={Greeting}> </Route>        <Route path='greet3' component={Greeting}> </Route> */}
+            <Route path='posts/new' component={PostsNew}></Route>
+            {/* <Route path='greet' component={Greeting}> </Route>
+            <Route path='greet2' component={Greeting}> </Route>        <Route path='greet3' component={Greeting}> </Route> */}
     </Route>
 )
 
